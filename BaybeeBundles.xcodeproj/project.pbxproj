@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		951FA351235505B3001B29B5 /* CategoryCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951FA350235505B3001B29B5 /* CategoryCollectionViewController.swift */; };
+		951FA35923551BA3001B29B5 /* Hats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951FA35823551BA3001B29B5 /* Hats.swift */; };
+		951FA35B23551EFF001B29B5 /* Headbands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951FA35A23551EFF001B29B5 /* Headbands.swift */; };
+		951FA35D23551F15001B29B5 /* Gloves.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951FA35C23551F15001B29B5 /* Gloves.swift */; };
+		951FA35F23551F2A001B29B5 /* Socks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951FA35E23551F2A001B29B5 /* Socks.swift */; };
+		951FA36123552093001B29B5 /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951FA36023552093001B29B5 /* Categories.swift */; };
+		951FA363235529D4001B29B5 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951FA362235529D4001B29B5 /* PhotoCollectionViewCell.swift */; };
 		959CEB132354D588000DAD5B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959CEB122354D588000DAD5B /* AppDelegate.swift */; };
 		959CEB152354D588000DAD5B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959CEB142354D588000DAD5B /* SceneDelegate.swift */; };
 		959CEB1A2354D588000DAD5B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 959CEB182354D588000DAD5B /* Main.storyboard */; };
@@ -39,6 +46,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		951FA350235505B3001B29B5 /* CategoryCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewController.swift; sourceTree = "<group>"; };
+		951FA35823551BA3001B29B5 /* Hats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hats.swift; sourceTree = "<group>"; };
+		951FA35A23551EFF001B29B5 /* Headbands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Headbands.swift; sourceTree = "<group>"; };
+		951FA35C23551F15001B29B5 /* Gloves.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gloves.swift; sourceTree = "<group>"; };
+		951FA35E23551F2A001B29B5 /* Socks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Socks.swift; sourceTree = "<group>"; };
+		951FA36023552093001B29B5 /* Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
+		951FA362235529D4001B29B5 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		959CEB0F2354D588000DAD5B /* BaybeeBundles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BaybeeBundles.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		959CEB122354D588000DAD5B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		959CEB142354D588000DAD5B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -144,6 +158,11 @@
 			children = (
 				959CEB472354D998000DAD5B /* Photo.swift */,
 				959CEB4B2354DA20000DAD5B /* Category.swift */,
+				951FA35823551BA3001B29B5 /* Hats.swift */,
+				951FA35A23551EFF001B29B5 /* Headbands.swift */,
+				951FA35C23551F15001B29B5 /* Gloves.swift */,
+				951FA35E23551F2A001B29B5 /* Socks.swift */,
+				951FA36023552093001B29B5 /* Categories.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -152,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				959CEB452354D972000DAD5B /* ShopViewController.swift */,
+				951FA350235505B3001B29B5 /* CategoryCollectionViewController.swift */,
 			);
 			path = viewController;
 			sourceTree = "<group>";
@@ -160,6 +180,7 @@
 			isa = PBXGroup;
 			children = (
 				959CEB492354DA14000DAD5B /* CategoryTableViewCell.swift */,
+				951FA362235529D4001B29B5 /* PhotoCollectionViewCell.swift */,
 			);
 			path = viewControllerCells;
 			sourceTree = "<group>";
@@ -295,13 +316,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				951FA35B23551EFF001B29B5 /* Headbands.swift in Sources */,
 				959CEB462354D972000DAD5B /* ShopViewController.swift in Sources */,
 				959CEB132354D588000DAD5B /* AppDelegate.swift in Sources */,
+				951FA351235505B3001B29B5 /* CategoryCollectionViewController.swift in Sources */,
 				959CEB152354D588000DAD5B /* SceneDelegate.swift in Sources */,
+				951FA35F23551F2A001B29B5 /* Socks.swift in Sources */,
 				959CEB1D2354D588000DAD5B /* BaybeeBundles.xcdatamodeld in Sources */,
+				951FA35923551BA3001B29B5 /* Hats.swift in Sources */,
 				959CEB482354D998000DAD5B /* Photo.swift in Sources */,
 				959CEB4A2354DA14000DAD5B /* CategoryTableViewCell.swift in Sources */,
+				951FA35D23551F15001B29B5 /* Gloves.swift in Sources */,
+				951FA363235529D4001B29B5 /* PhotoCollectionViewCell.swift in Sources */,
 				959CEB4C2354DA20000DAD5B /* Category.swift in Sources */,
+				951FA36123552093001B29B5 /* Categories.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
