@@ -1,24 +1,123 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="EF8-q0-AcH">
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Cart-->
+        <scene sceneID="5Uc-e8-1IG">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                <viewController id="qdA-WM-V0y" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="z7p-fO-2yF">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="pEg-Ct-byk"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Cart" image="cartIcon" id="xgi-ef-pBc"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Cr-sk-HEf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="399" y="365"/>
+        </scene>
+        <!--Shop-->
+        <scene sceneID="mjq-B6-h6A">
+            <objects>
+                <viewController id="gmD-56-Z56" customClass="ShopViewController" customModule="BaybeeBundles" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="euK-KL-eb5">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="appLogo" translatesAutoresizingMaskIntoConstraints="NO" id="9MX-Sh-xey">
+                                <rect key="frame" x="8" y="8" width="304" height="132"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="132" id="wPL-Xd-l1s"/>
+                                </constraints>
+                            </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="none" sectionIndexMinimumDisplayRowCount="1" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zIs-w2-y5L">
+                                <rect key="frame" x="8" y="148" width="304" height="363"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="CategoryCell" textLabel="UOH-si-mYl" imageView="Bs0-52-Mca" style="IBUITableViewCellStyleDefault" id="0ow-sK-mho" customClass="CategoryTableViewCell" customModule="BaybeeBundles" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="304" height="58"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0ow-sK-mho" id="Htn-H6-HrM">
+                                            <rect key="frame" x="0.0" y="0.0" width="278" height="58"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="UOH-si-mYl">
+                                                    <rect key="frame" x="74" y="0.0" width="196" height="58"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="hat1" id="Bs0-52-Mca">
+                                                    <rect key="frame" x="15" y="0.0" width="44" height="58"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="catImage" destination="Bs0-52-Mca" id="4HA-SK-wAr"/>
+                                            <outlet property="catTitle" destination="UOH-si-mYl" id="wfp-Xy-PX0"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="gmD-56-Z56" id="EDn-BM-o7h"/>
+                                    <outlet property="delegate" destination="gmD-56-Z56" id="Gmu-m2-Sn3"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Kbw-mv-FcY" firstAttribute="bottom" secondItem="zIs-w2-y5L" secondAttribute="bottom" constant="8" id="HWt-3y-Ida"/>
+                            <constraint firstItem="zIs-w2-y5L" firstAttribute="top" secondItem="9MX-Sh-xey" secondAttribute="bottom" constant="8" id="O73-SH-PiK"/>
+                            <constraint firstItem="9MX-Sh-xey" firstAttribute="leading" secondItem="Kbw-mv-FcY" secondAttribute="leading" constant="8" id="OZD-xe-pLY"/>
+                            <constraint firstItem="zIs-w2-y5L" firstAttribute="leading" secondItem="Kbw-mv-FcY" secondAttribute="leading" constant="8" id="Ogk-f7-63q"/>
+                            <constraint firstItem="9MX-Sh-xey" firstAttribute="top" secondItem="Kbw-mv-FcY" secondAttribute="top" constant="8" id="Ynk-R7-x4f"/>
+                            <constraint firstItem="Kbw-mv-FcY" firstAttribute="trailing" secondItem="9MX-Sh-xey" secondAttribute="trailing" constant="8" id="bBw-Vn-Wnx"/>
+                            <constraint firstItem="Kbw-mv-FcY" firstAttribute="trailing" secondItem="zIs-w2-y5L" secondAttribute="trailing" constant="8" id="iy3-0v-cJo"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Kbw-mv-FcY"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Shop" image="shopIcon" id="9KD-Cv-RDz"/>
+                    <connections>
+                        <outlet property="tableView" destination="zIs-w2-y5L" id="rMp-3I-8hH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pve-WV-51V" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="399" y="-283"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="TV5-F3-Rv5">
+            <objects>
+                <tabBarController id="EF8-q0-AcH" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="fId-Jr-Pzj">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="gmD-56-Z56" kind="relationship" relationship="viewControllers" id="9h4-xM-cR4"/>
+                        <segue destination="qdA-WM-V0y" kind="relationship" relationship="viewControllers" id="ylA-24-7RS"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cfr-6L-tie" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-520" y="41"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="appLogo" width="1024" height="432.5"/>
+        <image name="cartIcon" width="25" height="25"/>
+        <image name="hat1" width="3024" height="4032"/>
+        <image name="shopIcon" width="25" height="25"/>
+    </resources>
 </document>

@@ -9,13 +9,16 @@
 /* Begin PBXBuildFile section */
 		959CEB132354D588000DAD5B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959CEB122354D588000DAD5B /* AppDelegate.swift */; };
 		959CEB152354D588000DAD5B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959CEB142354D588000DAD5B /* SceneDelegate.swift */; };
-		959CEB172354D588000DAD5B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959CEB162354D588000DAD5B /* ViewController.swift */; };
 		959CEB1A2354D588000DAD5B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 959CEB182354D588000DAD5B /* Main.storyboard */; };
 		959CEB1D2354D588000DAD5B /* BaybeeBundles.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 959CEB1B2354D588000DAD5B /* BaybeeBundles.xcdatamodeld */; };
 		959CEB1F2354D589000DAD5B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 959CEB1E2354D589000DAD5B /* Assets.xcassets */; };
 		959CEB222354D589000DAD5B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 959CEB202354D589000DAD5B /* LaunchScreen.storyboard */; };
 		959CEB2D2354D589000DAD5B /* BaybeeBundlesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959CEB2C2354D589000DAD5B /* BaybeeBundlesTests.swift */; };
 		959CEB382354D589000DAD5B /* BaybeeBundlesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959CEB372354D589000DAD5B /* BaybeeBundlesUITests.swift */; };
+		959CEB462354D972000DAD5B /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959CEB452354D972000DAD5B /* ShopViewController.swift */; };
+		959CEB482354D998000DAD5B /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959CEB472354D998000DAD5B /* Photo.swift */; };
+		959CEB4A2354DA14000DAD5B /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959CEB492354DA14000DAD5B /* CategoryTableViewCell.swift */; };
+		959CEB4C2354DA20000DAD5B /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959CEB4B2354DA20000DAD5B /* Category.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +42,6 @@
 		959CEB0F2354D588000DAD5B /* BaybeeBundles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BaybeeBundles.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		959CEB122354D588000DAD5B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		959CEB142354D588000DAD5B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		959CEB162354D588000DAD5B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		959CEB192354D588000DAD5B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		959CEB1C2354D588000DAD5B /* BaybeeBundles.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BaybeeBundles.xcdatamodel; sourceTree = "<group>"; };
 		959CEB1E2354D589000DAD5B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -51,6 +53,10 @@
 		959CEB332354D589000DAD5B /* BaybeeBundlesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BaybeeBundlesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		959CEB372354D589000DAD5B /* BaybeeBundlesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaybeeBundlesUITests.swift; sourceTree = "<group>"; };
 		959CEB392354D58A000DAD5B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		959CEB452354D972000DAD5B /* ShopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewController.swift; sourceTree = "<group>"; };
+		959CEB472354D998000DAD5B /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		959CEB492354DA14000DAD5B /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
+		959CEB4B2354DA20000DAD5B /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,9 +107,11 @@
 		959CEB112354D588000DAD5B /* BaybeeBundles */ = {
 			isa = PBXGroup;
 			children = (
+				959CEB4E2354DB10000DAD5B /* viewController */,
+				959CEB4F2354DB28000DAD5B /* viewControllerCells */,
+				959CEB4D2354DB00000DAD5B /* Models */,
 				959CEB122354D588000DAD5B /* AppDelegate.swift */,
 				959CEB142354D588000DAD5B /* SceneDelegate.swift */,
-				959CEB162354D588000DAD5B /* ViewController.swift */,
 				959CEB182354D588000DAD5B /* Main.storyboard */,
 				959CEB1E2354D589000DAD5B /* Assets.xcassets */,
 				959CEB202354D589000DAD5B /* LaunchScreen.storyboard */,
@@ -129,6 +137,31 @@
 				959CEB392354D58A000DAD5B /* Info.plist */,
 			);
 			path = BaybeeBundlesUITests;
+			sourceTree = "<group>";
+		};
+		959CEB4D2354DB00000DAD5B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				959CEB472354D998000DAD5B /* Photo.swift */,
+				959CEB4B2354DA20000DAD5B /* Category.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		959CEB4E2354DB10000DAD5B /* viewController */ = {
+			isa = PBXGroup;
+			children = (
+				959CEB452354D972000DAD5B /* ShopViewController.swift */,
+			);
+			path = viewController;
+			sourceTree = "<group>";
+		};
+		959CEB4F2354DB28000DAD5B /* viewControllerCells */ = {
+			isa = PBXGroup;
+			children = (
+				959CEB492354DA14000DAD5B /* CategoryTableViewCell.swift */,
+			);
+			path = viewControllerCells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,10 +295,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				959CEB172354D588000DAD5B /* ViewController.swift in Sources */,
+				959CEB462354D972000DAD5B /* ShopViewController.swift in Sources */,
 				959CEB132354D588000DAD5B /* AppDelegate.swift in Sources */,
 				959CEB152354D588000DAD5B /* SceneDelegate.swift in Sources */,
 				959CEB1D2354D588000DAD5B /* BaybeeBundles.xcdatamodeld in Sources */,
+				959CEB482354D998000DAD5B /* Photo.swift in Sources */,
+				959CEB4A2354DA14000DAD5B /* CategoryTableViewCell.swift in Sources */,
+				959CEB4C2354DA20000DAD5B /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -441,6 +477,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A285N2ZF7M;
 				INFOPLIST_FILE = BaybeeBundles/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -459,6 +496,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A285N2ZF7M;
 				INFOPLIST_FILE = BaybeeBundles/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
