@@ -1,0 +1,612 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		959CEB132354D588000DAD5B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959CEB122354D588000DAD5B /* AppDelegate.swift */; };
+		959CEB152354D588000DAD5B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959CEB142354D588000DAD5B /* SceneDelegate.swift */; };
+		959CEB172354D588000DAD5B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959CEB162354D588000DAD5B /* ViewController.swift */; };
+		959CEB1A2354D588000DAD5B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 959CEB182354D588000DAD5B /* Main.storyboard */; };
+		959CEB1D2354D588000DAD5B /* BaybeeBundles.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 959CEB1B2354D588000DAD5B /* BaybeeBundles.xcdatamodeld */; };
+		959CEB1F2354D589000DAD5B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 959CEB1E2354D589000DAD5B /* Assets.xcassets */; };
+		959CEB222354D589000DAD5B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 959CEB202354D589000DAD5B /* LaunchScreen.storyboard */; };
+		959CEB2D2354D589000DAD5B /* BaybeeBundlesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959CEB2C2354D589000DAD5B /* BaybeeBundlesTests.swift */; };
+		959CEB382354D589000DAD5B /* BaybeeBundlesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959CEB372354D589000DAD5B /* BaybeeBundlesUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		959CEB292354D589000DAD5B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 959CEB072354D588000DAD5B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 959CEB0E2354D588000DAD5B;
+			remoteInfo = BaybeeBundles;
+		};
+		959CEB342354D589000DAD5B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 959CEB072354D588000DAD5B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 959CEB0E2354D588000DAD5B;
+			remoteInfo = BaybeeBundles;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		959CEB0F2354D588000DAD5B /* BaybeeBundles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BaybeeBundles.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		959CEB122354D588000DAD5B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		959CEB142354D588000DAD5B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		959CEB162354D588000DAD5B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		959CEB192354D588000DAD5B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		959CEB1C2354D588000DAD5B /* BaybeeBundles.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BaybeeBundles.xcdatamodel; sourceTree = "<group>"; };
+		959CEB1E2354D589000DAD5B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		959CEB212354D589000DAD5B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		959CEB232354D589000DAD5B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		959CEB282354D589000DAD5B /* BaybeeBundlesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BaybeeBundlesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		959CEB2C2354D589000DAD5B /* BaybeeBundlesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaybeeBundlesTests.swift; sourceTree = "<group>"; };
+		959CEB2E2354D589000DAD5B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		959CEB332354D589000DAD5B /* BaybeeBundlesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BaybeeBundlesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		959CEB372354D589000DAD5B /* BaybeeBundlesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaybeeBundlesUITests.swift; sourceTree = "<group>"; };
+		959CEB392354D58A000DAD5B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		959CEB0C2354D588000DAD5B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		959CEB252354D589000DAD5B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		959CEB302354D589000DAD5B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		959CEB062354D588000DAD5B = {
+			isa = PBXGroup;
+			children = (
+				959CEB112354D588000DAD5B /* BaybeeBundles */,
+				959CEB2B2354D589000DAD5B /* BaybeeBundlesTests */,
+				959CEB362354D589000DAD5B /* BaybeeBundlesUITests */,
+				959CEB102354D588000DAD5B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		959CEB102354D588000DAD5B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				959CEB0F2354D588000DAD5B /* BaybeeBundles.app */,
+				959CEB282354D589000DAD5B /* BaybeeBundlesTests.xctest */,
+				959CEB332354D589000DAD5B /* BaybeeBundlesUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		959CEB112354D588000DAD5B /* BaybeeBundles */ = {
+			isa = PBXGroup;
+			children = (
+				959CEB122354D588000DAD5B /* AppDelegate.swift */,
+				959CEB142354D588000DAD5B /* SceneDelegate.swift */,
+				959CEB162354D588000DAD5B /* ViewController.swift */,
+				959CEB182354D588000DAD5B /* Main.storyboard */,
+				959CEB1E2354D589000DAD5B /* Assets.xcassets */,
+				959CEB202354D589000DAD5B /* LaunchScreen.storyboard */,
+				959CEB232354D589000DAD5B /* Info.plist */,
+				959CEB1B2354D588000DAD5B /* BaybeeBundles.xcdatamodeld */,
+			);
+			path = BaybeeBundles;
+			sourceTree = "<group>";
+		};
+		959CEB2B2354D589000DAD5B /* BaybeeBundlesTests */ = {
+			isa = PBXGroup;
+			children = (
+				959CEB2C2354D589000DAD5B /* BaybeeBundlesTests.swift */,
+				959CEB2E2354D589000DAD5B /* Info.plist */,
+			);
+			path = BaybeeBundlesTests;
+			sourceTree = "<group>";
+		};
+		959CEB362354D589000DAD5B /* BaybeeBundlesUITests */ = {
+			isa = PBXGroup;
+			children = (
+				959CEB372354D589000DAD5B /* BaybeeBundlesUITests.swift */,
+				959CEB392354D58A000DAD5B /* Info.plist */,
+			);
+			path = BaybeeBundlesUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		959CEB0E2354D588000DAD5B /* BaybeeBundles */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 959CEB3C2354D58A000DAD5B /* Build configuration list for PBXNativeTarget "BaybeeBundles" */;
+			buildPhases = (
+				959CEB0B2354D588000DAD5B /* Sources */,
+				959CEB0C2354D588000DAD5B /* Frameworks */,
+				959CEB0D2354D588000DAD5B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BaybeeBundles;
+			productName = BaybeeBundles;
+			productReference = 959CEB0F2354D588000DAD5B /* BaybeeBundles.app */;
+			productType = "com.apple.product-type.application";
+		};
+		959CEB272354D589000DAD5B /* BaybeeBundlesTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 959CEB3F2354D58A000DAD5B /* Build configuration list for PBXNativeTarget "BaybeeBundlesTests" */;
+			buildPhases = (
+				959CEB242354D589000DAD5B /* Sources */,
+				959CEB252354D589000DAD5B /* Frameworks */,
+				959CEB262354D589000DAD5B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				959CEB2A2354D589000DAD5B /* PBXTargetDependency */,
+			);
+			name = BaybeeBundlesTests;
+			productName = BaybeeBundlesTests;
+			productReference = 959CEB282354D589000DAD5B /* BaybeeBundlesTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		959CEB322354D589000DAD5B /* BaybeeBundlesUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 959CEB422354D58A000DAD5B /* Build configuration list for PBXNativeTarget "BaybeeBundlesUITests" */;
+			buildPhases = (
+				959CEB2F2354D589000DAD5B /* Sources */,
+				959CEB302354D589000DAD5B /* Frameworks */,
+				959CEB312354D589000DAD5B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				959CEB352354D589000DAD5B /* PBXTargetDependency */,
+			);
+			name = BaybeeBundlesUITests;
+			productName = BaybeeBundlesUITests;
+			productReference = 959CEB332354D589000DAD5B /* BaybeeBundlesUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		959CEB072354D588000DAD5B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1110;
+				LastUpgradeCheck = 1110;
+				ORGANIZATIONNAME = "Chris Dias";
+				TargetAttributes = {
+					959CEB0E2354D588000DAD5B = {
+						CreatedOnToolsVersion = 11.1;
+					};
+					959CEB272354D589000DAD5B = {
+						CreatedOnToolsVersion = 11.1;
+						TestTargetID = 959CEB0E2354D588000DAD5B;
+					};
+					959CEB322354D589000DAD5B = {
+						CreatedOnToolsVersion = 11.1;
+						TestTargetID = 959CEB0E2354D588000DAD5B;
+					};
+				};
+			};
+			buildConfigurationList = 959CEB0A2354D588000DAD5B /* Build configuration list for PBXProject "BaybeeBundles" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 959CEB062354D588000DAD5B;
+			productRefGroup = 959CEB102354D588000DAD5B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				959CEB0E2354D588000DAD5B /* BaybeeBundles */,
+				959CEB272354D589000DAD5B /* BaybeeBundlesTests */,
+				959CEB322354D589000DAD5B /* BaybeeBundlesUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		959CEB0D2354D588000DAD5B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				959CEB222354D589000DAD5B /* LaunchScreen.storyboard in Resources */,
+				959CEB1F2354D589000DAD5B /* Assets.xcassets in Resources */,
+				959CEB1A2354D588000DAD5B /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		959CEB262354D589000DAD5B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		959CEB312354D589000DAD5B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		959CEB0B2354D588000DAD5B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				959CEB172354D588000DAD5B /* ViewController.swift in Sources */,
+				959CEB132354D588000DAD5B /* AppDelegate.swift in Sources */,
+				959CEB152354D588000DAD5B /* SceneDelegate.swift in Sources */,
+				959CEB1D2354D588000DAD5B /* BaybeeBundles.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		959CEB242354D589000DAD5B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				959CEB2D2354D589000DAD5B /* BaybeeBundlesTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		959CEB2F2354D589000DAD5B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				959CEB382354D589000DAD5B /* BaybeeBundlesUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		959CEB2A2354D589000DAD5B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 959CEB0E2354D588000DAD5B /* BaybeeBundles */;
+			targetProxy = 959CEB292354D589000DAD5B /* PBXContainerItemProxy */;
+		};
+		959CEB352354D589000DAD5B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 959CEB0E2354D588000DAD5B /* BaybeeBundles */;
+			targetProxy = 959CEB342354D589000DAD5B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		959CEB182354D588000DAD5B /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				959CEB192354D588000DAD5B /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		959CEB202354D589000DAD5B /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				959CEB212354D589000DAD5B /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		959CEB3A2354D58A000DAD5B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		959CEB3B2354D58A000DAD5B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		959CEB3D2354D58A000DAD5B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = A285N2ZF7M;
+				INFOPLIST_FILE = BaybeeBundles/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ca.stclairconnect.dias01.christopher.BaybeeBundles;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		959CEB3E2354D58A000DAD5B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = A285N2ZF7M;
+				INFOPLIST_FILE = BaybeeBundles/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ca.stclairconnect.dias01.christopher.BaybeeBundles;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		959CEB402354D58A000DAD5B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = A285N2ZF7M;
+				INFOPLIST_FILE = BaybeeBundlesTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ca.stclairconnect.dias01.christopher.BaybeeBundlesTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BaybeeBundles.app/BaybeeBundles";
+			};
+			name = Debug;
+		};
+		959CEB412354D58A000DAD5B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = A285N2ZF7M;
+				INFOPLIST_FILE = BaybeeBundlesTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ca.stclairconnect.dias01.christopher.BaybeeBundlesTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BaybeeBundles.app/BaybeeBundles";
+			};
+			name = Release;
+		};
+		959CEB432354D58A000DAD5B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = A285N2ZF7M;
+				INFOPLIST_FILE = BaybeeBundlesUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ca.stclairconnect.dias01.christopher.BaybeeBundlesUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = BaybeeBundles;
+			};
+			name = Debug;
+		};
+		959CEB442354D58A000DAD5B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = A285N2ZF7M;
+				INFOPLIST_FILE = BaybeeBundlesUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ca.stclairconnect.dias01.christopher.BaybeeBundlesUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = BaybeeBundles;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		959CEB0A2354D588000DAD5B /* Build configuration list for PBXProject "BaybeeBundles" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				959CEB3A2354D58A000DAD5B /* Debug */,
+				959CEB3B2354D58A000DAD5B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		959CEB3C2354D58A000DAD5B /* Build configuration list for PBXNativeTarget "BaybeeBundles" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				959CEB3D2354D58A000DAD5B /* Debug */,
+				959CEB3E2354D58A000DAD5B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		959CEB3F2354D58A000DAD5B /* Build configuration list for PBXNativeTarget "BaybeeBundlesTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				959CEB402354D58A000DAD5B /* Debug */,
+				959CEB412354D58A000DAD5B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		959CEB422354D58A000DAD5B /* Build configuration list for PBXNativeTarget "BaybeeBundlesUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				959CEB432354D58A000DAD5B /* Debug */,
+				959CEB442354D58A000DAD5B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		959CEB1B2354D588000DAD5B /* BaybeeBundles.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				959CEB1C2354D588000DAD5B /* BaybeeBundles.xcdatamodel */,
+			);
+			currentVersion = 959CEB1C2354D588000DAD5B /* BaybeeBundles.xcdatamodel */;
+			path = BaybeeBundles.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 959CEB072354D588000DAD5B /* Project object */;
+}
