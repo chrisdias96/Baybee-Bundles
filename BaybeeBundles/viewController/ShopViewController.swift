@@ -29,6 +29,7 @@ class ShopViewController: UIViewController {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 150
         
+        
     }
     
 
@@ -46,6 +47,10 @@ class ShopViewController: UIViewController {
 
 //MARK: Extensions
 extension ShopViewController: UITableViewDelegate, UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return categories.count
     }
@@ -59,6 +64,12 @@ extension ShopViewController: UITableViewDelegate, UITableViewDataSource {
         cell.catTitle.text = category.title
             
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let cellSpacingHeight: CGFloat = 100
+        
+        return cellSpacingHeight
     }
     
     

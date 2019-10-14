@@ -59,7 +59,7 @@
                                                 </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.80159422588832485" green="0.80159422588832485" blue="0.80159422588832485" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="backgroundColor" red="0.95169733502538068" green="0.95169733502538068" blue="0.95169733502538068" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <connections>
                                             <outlet property="catImage" destination="Bs0-52-Mca" id="4HA-SK-wAr"/>
                                             <outlet property="catTitle" destination="UOH-si-mYl" id="wfp-Xy-PX0"/>
