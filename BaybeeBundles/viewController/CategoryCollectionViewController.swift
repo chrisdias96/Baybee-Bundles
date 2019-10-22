@@ -10,56 +10,81 @@ import UIKit
 
 class CategoryCollectionViewController: UICollectionViewController {
 
-    //Declare all 4 - separate categories
-//    var hatPhotos: Hats!
-//    var headbandPhotos: Headbands!
-//    var glovePhotos: Gloves!
-//    var sockPhotos: Socks!
-//    
-//    var categoryViewToPass: UICollectionView
+    //MARK: Properties
+    var hats = Hats()
+    var headbands = Headbands()
+    var gloves = Gloves()
+    var socks = Socks()
     
+    var category: String!
+    var itemsArray = [Photo]()
+
+    
+    //MARK: viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
+    
+        switch category {
+        case "HATS":
+            itemsArray = hats.hatPhotos
+        case "HEADBANDS":
+            itemsArray = headbands.headbandPhotos
+        case "GLOVES":
+            itemsArray = gloves.glovePhotos
+        case "SOCKS":
+            itemsArray = socks.sockPhotos
+        default:
+            fatalError("Unknown category passed to CategoryCollectionViewController")
+        }
 
         // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
+        //self.clearsSelectionOnViewWillAppear = false
 
         // Register cell classes
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "itemCell")
+        //self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "itemCell")
 
         // Do any additional setup after loading the view.
     }
-
-    /*
+    
+    
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
+  
+        
     }
-    */
+    
 
     // MARK: UICollectionViewDataSource
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return 0
+        return itemsArray.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "itemCell", for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "itemCell", for: indexPath) as! PhotoCollectionViewCell
     
+        let categoryPassed = itemsArray[indexPath.row]
+        
         // Configure the cell
+        cell.photoImage.image = categoryPassed.image
+        cell.photoTitle.text = categoryPassed.title
+        cell.photoPrice.text = "$\(categoryPassed.price)"
     
         return cell
     }
+
 
     // MARK: UICollectionViewDelegate
 
@@ -91,5 +116,37 @@ class CategoryCollectionViewController: UICollectionViewController {
     
     }
     */
+    
+    
 
+}
+
+//MARK: Extensions
+extension CategoryCollectionViewController: UICollectionViewDelegateFlowLayout {
+    
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+//        let spacing = CGFloat(10)
+//
+//        return spacing
+//    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        let spacing = CGFloat(5)
+        
+        return spacing
+    }
+    
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//        let layout = CGSize(width: self.collectionView.frame.size.width - 20 / 2,
+//                            height: self.collectionView.frame.size.height / 3)
+//        
+//        return layout
+//    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        let insets = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
+        
+        return insets
+    }
+    
 }

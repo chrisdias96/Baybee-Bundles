@@ -8,16 +8,16 @@
 
 import UIKit
 
-class Photo: NSObject {
+struct Photo {
 
-    var image: UIImage
-    var title: String
-    var price: Double
+    let image: UIImage
+    let title: String
+    let price: Double
     
-    init(image: UIImage, title: String, price: Double) {
-        self.image = image
-        self.title = title
-        self.price = price
-    }
+//    init(image: UIImage, title: String, price: Double) {
+//        self.image = image
+//        self.title = title
+//        self.price = price
+//    }
     
 }

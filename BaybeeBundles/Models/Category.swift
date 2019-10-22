@@ -8,14 +8,14 @@
 
 import UIKit
 
-class Category: NSObject {
+struct Category {
 
-    var image: UIImage
-    var title: String
+    let image: UIImage
+    let title: String
     
-    init(image: UIImage, title: String) {
-        self.image = image
-        self.title = title
-    }
+//    init(image: UIImage, title: String) {
+//        self.image = image
+//        self.title = title
+//    }
     
 }
