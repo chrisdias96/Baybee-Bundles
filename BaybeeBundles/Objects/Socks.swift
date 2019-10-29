@@ -14,10 +14,18 @@ class Socks {
     }
     
     var sockPhotos: [Photo] = [
-        Photo(image: UIImage(named: "socks1")!, title: "Unisex White Elephant Socks", price: 14.99),
-        Photo(image: UIImage(named: "socks2")!, title: "Unisex Blue and Gray Socks", price: 11.99),
-        Photo(image: UIImage(named: "socks3")!, title: "Unisex Blue and White Socks", price: 11.99),
-        Photo(image: UIImage(named: "socks4")!, title: "Unisex Pink and Black Socks", price: 11.99),
+        Photo(image: UIImage(named: "socks1")!,
+              title: "Unisex White Elephant Socks",
+              price: 14.99),
+        Photo(image: UIImage(named: "socks2")!,
+              title: "Unisex Blue and Gray Socks",
+              price: 11.99),
+        Photo(image: UIImage(named: "socks3")!,
+              title: "Unisex Blue and White Socks",
+              price: 11.99),
+        Photo(image: UIImage(named: "socks4")!,
+              title: "Unisex Pink and Black Socks",
+              price: 11.99),
     ]
 
 }

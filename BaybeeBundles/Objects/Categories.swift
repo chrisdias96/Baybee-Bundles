@@ -11,10 +11,10 @@ import UIKit
 class Categories {
 
     var categories: [Category] = [
-        Category(image: UIImage(named: "hat1")!, title: "HATS"),
-        Category(image: UIImage(named: "headband1")!, title: "HEADBANDS"),
-        Category(image: UIImage(named: "gloves1")!, title: "GLOVES"),
-        Category(image: UIImage(named: "socks1")!, title: "SOCKS"),
+        Category(title: "HATS"),
+        Category(title: "HEADBANDS"),
+        Category(title: "GLOVES"),
+        Category(title: "SOCKS"),
     ]
     
     init() {

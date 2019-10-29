@@ -14,8 +14,12 @@ class Headbands {
     }
     
     var headbandPhotos: [Photo] = [
-        Photo(image: UIImage(named: "headband1")!, title: "Unisex Comfy White Headband", price: 12.99),
-        Photo(image: UIImage(named: "headband2")!, title: "Unisex Space Gray Headband", price: 15.99)
+        Photo(image: UIImage(named: "headband1")!,
+              title: "Unisex Comfy White Headband",
+              price: 12.99),
+        Photo(image: UIImage(named: "headband2")!,
+              title: "Unisex Space Gray Headband",
+              price: 15.99)
     ]
 
 }

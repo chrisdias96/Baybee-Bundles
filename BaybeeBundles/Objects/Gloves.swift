@@ -14,9 +14,15 @@ class Gloves {
     }
     
     var glovePhotos: [Photo] = [
-        Photo(image: UIImage(named: "gloves1")!, title: "Unisex White & Blue Striped Gloves", price: 9.99),
-        Photo(image: UIImage(named: "gloves2")!, title: "Unisex Blue Gloves", price: 8.99),
-        Photo(image: UIImage(named: "gloves3")!, title: "Unisex Black, White and Red Gloves", price: 13.99)
+        Photo(image: UIImage(named: "gloves1")!,
+              title: "Unisex White & Blue Striped Gloves",
+              price: 9.99),
+        Photo(image: UIImage(named: "gloves2")!,
+              title: "Unisex Blue Gloves",
+              price: 8.99),
+        Photo(image: UIImage(named: "gloves3")!,
+              title: "Unisex Black, White and Red Gloves",
+              price: 13.99)
     ]
     
 }

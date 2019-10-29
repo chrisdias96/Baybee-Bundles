@@ -9,13 +9,7 @@
 import UIKit
 
 struct Category {
-
-    let image: UIImage
-    let title: String
     
-//    init(image: UIImage, title: String) {
-//        self.image = image
-//        self.title = title
-//    }
+    let title: String
     
 }

@@ -23,7 +23,15 @@ class CategoryCollectionViewController: UICollectionViewController {
     //MARK: viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+
+        #warning("Center the collectionview")
+        let width = (view.frame.size.width - 20) / 2
+        let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
+        layout.estimatedItemSize = CGSize(width: width, height: 200)
+
+        // Do any additional setup after loading the view.
+        self.title = category
+        
         switch category {
         case "HATS":
             itemsArray = hats.hatPhotos
@@ -36,14 +44,6 @@ class CategoryCollectionViewController: UICollectionViewController {
         default:
             fatalError("Unknown category passed to CategoryCollectionViewController")
         }
-
-        // Uncomment the following line to preserve selection between presentations
-        //self.clearsSelectionOnViewWillAppear = false
-
-        // Register cell classes
-        //self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "itemCell")
-
-        // Do any additional setup after loading the view.
     }
     
     
@@ -54,13 +54,17 @@ class CategoryCollectionViewController: UICollectionViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
-  
+        
+        if segue.identifier == "itemDetailSegue",
+            let itemDetailVC = segue.destination as? itemDetailViewController,
+            let selectedIndex = collectionView.indexPathsForSelectedItems?.first {
+            itemDetailVC.photo = itemsArray[selectedIndex.row]
+        }
         
     }
     
 
     // MARK: UICollectionViewDataSource
-
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
@@ -77,6 +81,11 @@ class CategoryCollectionViewController: UICollectionViewController {
     
         let categoryPassed = itemsArray[indexPath.row]
         
+        cell.layer.borderColor = UIColor.black.cgColor
+        cell.layer.borderWidth = 1
+        cell.layer.cornerRadius = 8
+        cell.clipsToBounds = true
+        
         // Configure the cell
         cell.photoImage.image = categoryPassed.image
         cell.photoTitle.text = categoryPassed.title
@@ -88,6 +97,10 @@ class CategoryCollectionViewController: UICollectionViewController {
 
     // MARK: UICollectionViewDelegate
 
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "itemDetailSegue", sender: self)
+    }
+    
     /*
     // Uncomment this method to specify if the specified item should be highlighted during tracking
     override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
@@ -116,8 +129,6 @@ class CategoryCollectionViewController: UICollectionViewController {
     
     }
     */
-    
-    
 
 }
 
@@ -144,9 +155,32 @@ extension CategoryCollectionViewController: UICollectionViewDelegateFlowLayout {
 //    }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        let insets = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
+        let insets = UIEdgeInsets(top: 5, left: 5, bottom: 0, right: 5)
         
         return insets
     }
     
+    
+    
+}
+
+extension CategoryCollectionViewController: UIViewControllerPreviewingDelegate {
+  func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+    guard let tappedIndexPath = collectionView.indexPathForItem(at: location)
+      else { return nil }
+    
+    let photo = itemsArray[tappedIndexPath.row]
+    
+    guard let viewController = storyboard?.instantiateViewController(withIdentifier:"itemDetailViewController") as? itemDetailViewController
+      else { return nil }
+    
+    viewController.photo = photo
+    return viewController
+  }
+  
+  func previewingContext(_ previewingContext: UIViewControllerPreviewing,
+                         commit viewControllerToCommit: UIViewController) {
+    
+    navigationController?.show(viewControllerToCommit, sender: self)
+  }
 }

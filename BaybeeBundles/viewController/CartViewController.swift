@@ -1,56 +1,45 @@
 //
-//  ShopViewController.swift
+//  CartViewController.swift
 //  BaybeeBundles
 //
-//  Created by Chris Dias on 2019-10-14.
+//  Created by Chris Dias on 2019-10-28.
 //  Copyright © 2019 Chris Dias. All rights reserved.
 //
 
 import UIKit
 
-class ShopViewController: UIViewController {
-    
+class CartViewController: UIViewController {
+
     //MARK: Outlets
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var cartTableView: UITableView!
 
     //MARK: Properties
-    var categories = Categories()
-    var passedCategories: String!
+    var cart = Cart()
     
-    //MARK: viewDidLoad
+    //viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
-
     }
     
+
+    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
-        guard let selectedIndex = tableView.indexPathForSelectedRow
-            else { return }
-        
-        //let category = categories.categories[selectedIndex.row]
-        let category = categories.categories[selectedIndex.section]
-        let title = category.title
-        
-        if let categoryCollectionVC = segue.destination as? CategoryCollectionViewController {
-            categoryCollectionVC.category = title
-        }
-
     }
+    */
 
-}//end Class
+}
 
 //MARK: Extensions
-extension ShopViewController: UITableViewDelegate, UITableViewDataSource {
+extension CartViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return categories.categories.count
+        return cart.cart.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -58,11 +47,17 @@ extension ShopViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryCell", for: indexPath) as! CategoryTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CartCell", for: indexPath) as! CartTableViewCell
             
-        let categorySection = categories.categories[indexPath.section]
+        let cartRow = cart.cart[indexPath.section]
 
-        cell.catTitle.text = categorySection.title
+        let totalPrice = cartRow.totalPrice * Double(cartRow.quantity)
+        
+        cell.cartImage.image = cartRow.image
+        cell.cartTitle.text = cartRow.title
+        cell.cartPrice.text = ("$\(totalPrice)")
+        cell.cartSize.text = cartRow.size
+        cell.cartQuantity.text = ("\(cartRow.quantity)")
         
         cell.layer.borderColor = UIColor.black.cgColor
         cell.layer.borderWidth = 1

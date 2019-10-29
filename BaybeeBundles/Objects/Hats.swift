@@ -14,9 +14,15 @@ class Hats {
     }
 
     var hatPhotos: [Photo] = [
-        Photo(image: UIImage(named: "hat1")!, title: "Unisex White Hat", price: 11.99),
-        Photo(image: UIImage(named: "hat2")!, title: "Unisex Baby Bears Hat", price: 14.99),
-        Photo(image: UIImage(named: "hat3")!, title: "Unisex Gray Hat", price: 9.99)
+        Photo(image: UIImage(named: "hat1")!,
+              title: "Unisex White Hat",
+              price: 11.99),
+        Photo(image: UIImage(named: "hat2")!,
+              title: "Unisex Baby Bears Hat",
+              price: 14.99),
+        Photo(image: UIImage(named: "hat3")!,
+              title: "Unisex Gray Hat",
+              price: 9.99)
     ]
     
 }
