@@ -19,10 +19,7 @@ class Gloves {
               price: 9.99),
         Photo(image: UIImage(named: "gloves2")!,
               title: "Unisex Blue Gloves",
-              price: 8.99),
-        Photo(image: UIImage(named: "gloves3")!,
-              title: "Unisex Black, White and Red Gloves",
-              price: 13.99)
+              price: 8.99)
     ]
     
 }

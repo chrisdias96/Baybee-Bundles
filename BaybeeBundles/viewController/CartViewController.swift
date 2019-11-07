@@ -162,7 +162,6 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource {
         cell.cartStepper.tag = indexPath.item
         cell.cartStepper.value = Double(item.quantity)
         
-        
         //Style the cell
         cell.layer.borderColor = UIColor.black.cgColor
         cell.layer.borderWidth = 1
@@ -289,7 +288,7 @@ extension CartViewController {
 }
 
 //MARK: stepperTapped Protocol
-#warning("Ask about screen flashing and quanity being a double")
+#warning("Ask about screen flashing")
 extension CartViewController {
     func stepperTapped(cell: CartTableViewCell) {
         //Grab the indexPath of the tableView
@@ -301,14 +300,14 @@ extension CartViewController {
         let item = fetchedResultsController.object(at: indexPath)
                 
         //Grab the value of the UIstepper in the specific cell
-        let stepperValue = cell.cartStepper.value
+        let stepperValue = Int(cell.cartStepper.value)
                 
         //Change the text of quantity and item.quantity to the new value
         cell.cartQuantity.text = String(stepperValue)
         item.quantity = Int64(stepperValue)
         
         //Load the changes to the persistent container's moc
-        NotificationCenter.default.addObserver(self, selector: #selector(self.managedObjectContextDidChange(notification:)), name: .NSManagedObjectContextObjectsDidChange, object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(self.managedObjectContextDidChange(notification:)), name: .NSManagedObjectContextObjectsDidChange, object: nil)
     }
 }
     

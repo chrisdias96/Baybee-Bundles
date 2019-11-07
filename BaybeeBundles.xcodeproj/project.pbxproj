@@ -116,13 +116,6 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
-		955AAE7623688C9200537714 /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Protocols;
-			sourceTree = "<group>";
-		};
 		955DC1C4235E5F2C008E1D40 /* Objects */ = {
 			isa = PBXGroup;
 			children = (
@@ -164,7 +157,6 @@
 				959CEB4D2354DB00000DAD5B /* Models */,
 				959CEB4E2354DB10000DAD5B /* viewController */,
 				959CEB4F2354DB28000DAD5B /* viewControllerCells */,
-				955AAE7623688C9200537714 /* Protocols */,
 				959CEB122354D588000DAD5B /* AppDelegate.swift */,
 				959CEB142354D588000DAD5B /* SceneDelegate.swift */,
 				959CEB182354D588000DAD5B /* Main.storyboard */,

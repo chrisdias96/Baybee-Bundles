@@ -28,11 +28,9 @@ class itemDetailViewController: UIViewController {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var valueOfSizeTextField: UITextField!
+    @IBOutlet weak var valueOfQuantityTextField: UITextField!
     
-    @IBOutlet weak var valueOfSizeLabel: UILabel!
-    @IBOutlet weak var sizePickerView: UIPickerView!
-    @IBOutlet weak var valueOfQuantityLabel: UILabel!
-    @IBOutlet weak var quantityPickerView: UIPickerView!
     
     @IBOutlet weak var addToCartButton: UIButton!
     
@@ -44,36 +42,32 @@ class itemDetailViewController: UIViewController {
             let image = photoImageView.image,
             //Convert UIImage to NSData
             let imageConvertedToNSData: Data = image.pngData(),
-            let price = priceLabel.text,
-            var size = valueOfSizeLabel.text,
+            var price = priceLabel.text,
+            let size = valueOfSizeTextField.text,
             size != "",
-            var quantity = valueOfQuantityLabel.text,
+            let quantity = valueOfQuantityTextField.text,
             !quantity.isEmpty else {
                 return missingSizeOrQuantity()
         }
-        
+        //Add to subtotal
+        price.remove(at: price.startIndex)
         var subtotal = 0.0
         subtotal = Double(price)! * Double(quantity)!
         
-        //Otherwise, it's a new item, create it and add it
+        if db?.getAllItems().count != 0 {
+            db?.updateItem(title: title, price: Double(price)!, image: imageConvertedToNSData, size: size, quantity: Int64(quantity)!, subtotal: subtotal)
+        } else {
             db?.saveItem(title: title, price: Double(price)!, image: imageConvertedToNSData, size: size, quantity: Int64(quantity)!, subtotal: subtotal)
-        size = ""
-        quantity = ""
-        
-        
-        #warning("Remove navigation controller")
+            print("saving new item from else statement")
+        }
 
+        showToast(message: "Added to Cart")
     }
     
     //MARK: viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        sizePickerView.dataSource = self
-        sizePickerView.delegate = self
-        quantityPickerView.dataSource = self
-        quantityPickerView.delegate = self
-        
+
         // Get the Persistent Container if it is nil
         if db == nil {
             guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
@@ -84,27 +78,21 @@ class itemDetailViewController: UIViewController {
         let contentWidth = scrollView.bounds.width
         let contentHeight = scrollView.bounds.height * 3
         scrollView.contentSize = CGSize(width: contentWidth, height: contentHeight)
+
+        //Call the UIPickers
+        createSizePicker()
+        createQuantityPicker()
+        CreateToolBar()
         
         //Grab the photo details of the item the user chose to view if it's new
         guard let item = self.photo else {
-            //Grab the existing item if it exists
-            guard let existingItem = self.itemToPass else {
-                return
-            }
-            self.title = existingItem.title
-            photoImageView.image = UIImage(data: existingItem.image!)
-            priceLabel.text = String(existingItem.price)
-            valueOfSizeLabel.text = existingItem.size
-            valueOfQuantityLabel.text = String(existingItem.quantity)
             return
         }
         
         //Populate the view with the chosen collection item
         self.title = item.title
         photoImageView.image = item.image
-        priceLabel.text = String(item.price)
-        valueOfSizeLabel.text = sizeDataSource[0]
-        valueOfQuantityLabel.text = String(quantityDataSource[0])
+        priceLabel.text = "$\(item.price)"
     }//end viewDidLoad
 
     //MARK: Prepare
@@ -123,7 +111,6 @@ class itemDetailViewController: UIViewController {
         alertController.addAction(action)
         self.present(alertController, animated: true, completion: nil)
     }
-
     
     func addUIToButtons(button: UIButton) {
         button.layer.borderColor = customGrayColor.cgColor
@@ -131,14 +118,75 @@ class itemDetailViewController: UIViewController {
         button.clipsToBounds = true
     }
     
-    //MARK: objective c Methods
+    func createSizePicker() {
+        let sizePicker = UIPickerView()
+        sizePicker.delegate = self
+        
+        valueOfSizeTextField.inputView = sizePicker
+    }
+    
+    func createQuantityPicker() {
+        let quantityPicker = UIPickerView()
+        quantityPicker.delegate = self
+        
+        valueOfQuantityTextField.inputView = quantityPicker
+    }
+    
+    func CreateToolBar() {
+        let toolBar = UIToolbar()
+        toolBar.sizeToFit()
+        
+        let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(self.dismissKeyboard))
+        
+        toolBar.setItems([doneButton], animated: false)
+        toolBar.isUserInteractionEnabled = true
+        
+        valueOfSizeTextField.inputAccessoryView = toolBar
+        valueOfQuantityTextField.inputAccessoryView = toolBar
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    
+    //MARK: Objective-C Methods
     @objc func buttonPressed(sender: UIButton) {
         sender.layer.borderColor = UIColor.black.cgColor
         sender.layer.borderWidth = 2
     }
-   
+}//end Class
+
+extension itemDetailViewController {
+    func showToast(message : String) {
+
+        let toastLabel = UILabel(frame: CGRect(x: self.view.frame.size.width/2 - 75, y: self.view.frame.size.height/2, width: 150, height: 50))
+        toastLabel.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+        toastLabel.textColor = UIColor.white
+        toastLabel.font = UIFont(name: "Chalkboard SE Regular", size: 13)
+        toastLabel.textAlignment = .center;
+        toastLabel.text = message
+        toastLabel.alpha = 1.0
+        toastLabel.layer.cornerRadius = 10;
+        toastLabel.clipsToBounds  =  true
+        self.view.addSubview(toastLabel)
+        UIView.animate(withDuration: 5.0,  animations: {
+             toastLabel.alpha = 0.0
+        }, completion: {(isCompleted) in
+            toastLabel.removeFromSuperview()
+        })
+    }
 }
 
+//MARK: UITextFieldDelegate
+//extension itemDetailViewController: UITextFieldDelegate {
+//    var activeTextField = UITextField()
+//
+//    func textFieldDidBeginEditing(_ textField: UITextField) {
+//        self.activeTextField =
+//    }
+//}
+
+//MARK: UIPickerViewDataSource
 //tag1: sizePickerView
 //tag2: quantityPickerView
 extension itemDetailViewController: UIPickerViewDataSource {
@@ -147,7 +195,7 @@ extension itemDetailViewController: UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        if pickerView.tag == 1 {
+        if valueOfSizeTextField.isFirstResponder {
             return sizeDataSource.count
         } else {
             return quantityDataSource.count
@@ -155,20 +203,26 @@ extension itemDetailViewController: UIPickerViewDataSource {
     }
 }
 
+//MARK: UIPickerViewDelegate
 extension itemDetailViewController: UIPickerViewDelegate {
+    
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        if pickerView.tag == 1 {
+        if valueOfSizeTextField.isFirstResponder {
             return sizeDataSource[row]
-        } else {
-            return "\(quantityDataSource[row])"
         }
+        if valueOfQuantityTextField.isFirstResponder {
+            return String(quantityDataSource[row])
+        }
+        return nil
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        if pickerView.tag == 1 {
-            valueOfSizeLabel.text = sizeDataSource[row]
-        } else {
-            valueOfQuantityLabel.text = "\(quantityDataSource[row])"
+        if valueOfSizeTextField.isFirstResponder {
+            valueOfSizeTextField.text = sizeDataSource[row]
         }
+        if valueOfQuantityTextField.isFirstResponder {
+            valueOfQuantityTextField.text = String(quantityDataSource[row])
+        }
+        return
     }
 }

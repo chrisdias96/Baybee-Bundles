@@ -17,20 +17,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-
-//        //Point the moc to the itemDetailVC
-//        if let tabBarVC = window?.rootViewController as? UITabBarController,
-//            let navVC = tabBarVC.viewControllers![0] as? UINavigationController,
-//            let shopVC = navVC.viewControllers[0] as? ShopViewController {
-//            shopVC.moc = persistentContainer.viewContext
-//        }
-//
-//        //Point the moc to the CartVC
-//        if let tabBarVC = window?.rootViewController as? UITabBarController,
-//            let navVC = tabBarVC.viewControllers![1] as? UINavigationController,
-//            let cartVC = navVC.viewControllers[0] as? CartViewController {
-//            cartVC.moc = persistentContainer.viewContext
-//        }
         
         return true
     }
