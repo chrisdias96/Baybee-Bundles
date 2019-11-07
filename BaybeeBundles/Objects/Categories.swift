@@ -17,8 +17,4 @@ class Categories {
         Category(title: "SOCKS"),
     ]
     
-    init() {
-        
-    }
-    
 }

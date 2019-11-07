@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		951B0FE1236CC6C5008718EB /* DBHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951B0FE0236CC6C5008718EB /* DBHelper.swift */; };
 		951FA351235505B3001B29B5 /* CategoryCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951FA350235505B3001B29B5 /* CategoryCollectionViewController.swift */; };
 		951FA35923551BA3001B29B5 /* Hats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951FA35823551BA3001B29B5 /* Hats.swift */; };
 		951FA35B23551EFF001B29B5 /* Headbands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951FA35A23551EFF001B29B5 /* Headbands.swift */; };
@@ -15,10 +16,10 @@
 		951FA36123552093001B29B5 /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951FA36023552093001B29B5 /* Categories.swift */; };
 		951FA363235529D4001B29B5 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951FA362235529D4001B29B5 /* PhotoCollectionViewCell.swift */; };
 		951FA365235542F2001B29B5 /* itemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951FA364235542F2001B29B5 /* itemDetailViewController.swift */; };
+		955AAE7523688AB800537714 /* CartItems.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 955AAE7323688AB800537714 /* CartItems.xcdatamodeld */; };
 		959CEB132354D588000DAD5B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959CEB122354D588000DAD5B /* AppDelegate.swift */; };
 		959CEB152354D588000DAD5B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959CEB142354D588000DAD5B /* SceneDelegate.swift */; };
 		959CEB1A2354D588000DAD5B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 959CEB182354D588000DAD5B /* Main.storyboard */; };
-		959CEB1D2354D588000DAD5B /* BaybeeBundles.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 959CEB1B2354D588000DAD5B /* BaybeeBundles.xcdatamodeld */; };
 		959CEB1F2354D589000DAD5B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 959CEB1E2354D589000DAD5B /* Assets.xcassets */; };
 		959CEB222354D589000DAD5B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 959CEB202354D589000DAD5B /* LaunchScreen.storyboard */; };
 		959CEB2D2354D589000DAD5B /* BaybeeBundlesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959CEB2C2354D589000DAD5B /* BaybeeBundlesTests.swift */; };
@@ -28,9 +29,7 @@
 		959CEB4A2354DA14000DAD5B /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959CEB492354DA14000DAD5B /* CategoryTableViewCell.swift */; };
 		959CEB4C2354DA20000DAD5B /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959CEB4B2354DA20000DAD5B /* Category.swift */; };
 		95E45CC9236797AA008AA9B5 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E45CC8236797AA008AA9B5 /* CartViewController.swift */; };
-		95E45CCB23679BA0008AA9B5 /* QuantityPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E45CCA23679BA0008AA9B5 /* QuantityPopupViewController.swift */; };
-		95E45CCD2367AFD3008AA9B5 /* CartItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E45CCC2367AFD3008AA9B5 /* CartItem.swift */; };
-		95E45CCF2367B597008AA9B5 /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E45CCE2367B597008AA9B5 /* Cart.swift */; };
+		95E45CCF2367B597008AA9B5 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E45CCE2367B597008AA9B5 /* Item.swift */; };
 		95E45CD12367C037008AA9B5 /* CartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E45CD02367C037008AA9B5 /* CartTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +51,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		951B0FE0236CC6C5008718EB /* DBHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBHelper.swift; sourceTree = "<group>"; };
 		951FA350235505B3001B29B5 /* CategoryCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewController.swift; sourceTree = "<group>"; };
 		951FA35823551BA3001B29B5 /* Hats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hats.swift; sourceTree = "<group>"; };
 		951FA35A23551EFF001B29B5 /* Headbands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Headbands.swift; sourceTree = "<group>"; };
@@ -60,11 +60,11 @@
 		951FA36023552093001B29B5 /* Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
 		951FA362235529D4001B29B5 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		951FA364235542F2001B29B5 /* itemDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = itemDetailViewController.swift; sourceTree = "<group>"; };
+		955AAE7423688AB800537714 /* CartItems.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CartItems.xcdatamodel; sourceTree = "<group>"; };
 		959CEB0F2354D588000DAD5B /* BaybeeBundles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BaybeeBundles.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		959CEB122354D588000DAD5B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		959CEB142354D588000DAD5B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		959CEB192354D588000DAD5B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		959CEB1C2354D588000DAD5B /* BaybeeBundles.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BaybeeBundles.xcdatamodel; sourceTree = "<group>"; };
 		959CEB1E2354D589000DAD5B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		959CEB212354D589000DAD5B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		959CEB232354D589000DAD5B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -79,9 +79,7 @@
 		959CEB492354DA14000DAD5B /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
 		959CEB4B2354DA20000DAD5B /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		95E45CC8236797AA008AA9B5 /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
-		95E45CCA23679BA0008AA9B5 /* QuantityPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuantityPopupViewController.swift; sourceTree = "<group>"; };
-		95E45CCC2367AFD3008AA9B5 /* CartItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItem.swift; sourceTree = "<group>"; };
-		95E45CCE2367B597008AA9B5 /* Cart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cart.swift; sourceTree = "<group>"; };
+		95E45CCE2367B597008AA9B5 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		95E45CD02367C037008AA9B5 /* CartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -110,6 +108,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		951B0FDF236CC6A7008718EB /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				951B0FE0236CC6C5008718EB /* DBHelper.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		955AAE7623688C9200537714 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		955DC1C4235E5F2C008E1D40 /* Objects */ = {
 			isa = PBXGroup;
 			children = (
@@ -118,7 +131,7 @@
 				951FA35C23551F15001B29B5 /* Gloves.swift */,
 				951FA35E23551F2A001B29B5 /* Socks.swift */,
 				951FA36023552093001B29B5 /* Categories.swift */,
-				95E45CCE2367B597008AA9B5 /* Cart.swift */,
+				95E45CCE2367B597008AA9B5 /* Item.swift */,
 			);
 			path = Objects;
 			sourceTree = "<group>";
@@ -146,17 +159,19 @@
 		959CEB112354D588000DAD5B /* BaybeeBundles */ = {
 			isa = PBXGroup;
 			children = (
+				951B0FDF236CC6A7008718EB /* Helpers */,
 				955DC1C4235E5F2C008E1D40 /* Objects */,
 				959CEB4D2354DB00000DAD5B /* Models */,
 				959CEB4E2354DB10000DAD5B /* viewController */,
 				959CEB4F2354DB28000DAD5B /* viewControllerCells */,
+				955AAE7623688C9200537714 /* Protocols */,
 				959CEB122354D588000DAD5B /* AppDelegate.swift */,
 				959CEB142354D588000DAD5B /* SceneDelegate.swift */,
 				959CEB182354D588000DAD5B /* Main.storyboard */,
 				959CEB1E2354D589000DAD5B /* Assets.xcassets */,
 				959CEB202354D589000DAD5B /* LaunchScreen.storyboard */,
 				959CEB232354D589000DAD5B /* Info.plist */,
-				959CEB1B2354D588000DAD5B /* BaybeeBundles.xcdatamodeld */,
+				955AAE7323688AB800537714 /* CartItems.xcdatamodeld */,
 			);
 			path = BaybeeBundles;
 			sourceTree = "<group>";
@@ -184,7 +199,6 @@
 			children = (
 				959CEB472354D998000DAD5B /* Photo.swift */,
 				959CEB4B2354DA20000DAD5B /* Category.swift */,
-				95E45CCC2367AFD3008AA9B5 /* CartItem.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -196,7 +210,6 @@
 				951FA350235505B3001B29B5 /* CategoryCollectionViewController.swift */,
 				951FA364235542F2001B29B5 /* itemDetailViewController.swift */,
 				95E45CC8236797AA008AA9B5 /* CartViewController.swift */,
-				95E45CCA23679BA0008AA9B5 /* QuantityPopupViewController.swift */,
 			);
 			path = viewController;
 			sourceTree = "<group>";
@@ -344,18 +357,17 @@
 			files = (
 				951FA35B23551EFF001B29B5 /* Headbands.swift in Sources */,
 				959CEB462354D972000DAD5B /* ShopViewController.swift in Sources */,
-				95E45CCF2367B597008AA9B5 /* Cart.swift in Sources */,
+				95E45CCF2367B597008AA9B5 /* Item.swift in Sources */,
+				951B0FE1236CC6C5008718EB /* DBHelper.swift in Sources */,
+				955AAE7523688AB800537714 /* CartItems.xcdatamodeld in Sources */,
 				959CEB132354D588000DAD5B /* AppDelegate.swift in Sources */,
 				951FA351235505B3001B29B5 /* CategoryCollectionViewController.swift in Sources */,
-				95E45CCD2367AFD3008AA9B5 /* CartItem.swift in Sources */,
 				959CEB152354D588000DAD5B /* SceneDelegate.swift in Sources */,
 				95E45CD12367C037008AA9B5 /* CartTableViewCell.swift in Sources */,
 				951FA35F23551F2A001B29B5 /* Socks.swift in Sources */,
-				959CEB1D2354D588000DAD5B /* BaybeeBundles.xcdatamodeld in Sources */,
 				951FA365235542F2001B29B5 /* itemDetailViewController.swift in Sources */,
 				951FA35923551BA3001B29B5 /* Hats.swift in Sources */,
 				959CEB482354D998000DAD5B /* Photo.swift in Sources */,
-				95E45CCB23679BA0008AA9B5 /* QuantityPopupViewController.swift in Sources */,
 				959CEB4A2354DA14000DAD5B /* CategoryTableViewCell.swift in Sources */,
 				951FA35D23551F15001B29B5 /* Gloves.swift in Sources */,
 				95E45CC9236797AA008AA9B5 /* CartViewController.swift in Sources */,
@@ -694,13 +706,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		959CEB1B2354D588000DAD5B /* BaybeeBundles.xcdatamodeld */ = {
+		955AAE7323688AB800537714 /* CartItems.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				959CEB1C2354D588000DAD5B /* BaybeeBundles.xcdatamodel */,
+				955AAE7423688AB800537714 /* CartItems.xcdatamodel */,
 			);
-			currentVersion = 959CEB1C2354D588000DAD5B /* BaybeeBundles.xcdatamodel */;
-			path = BaybeeBundles.xcdatamodeld;
+			currentVersion = 955AAE7423688AB800537714 /* CartItems.xcdatamodel */;
+			path = CartItems.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

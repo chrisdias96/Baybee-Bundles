@@ -18,7 +18,6 @@ class CategoryCollectionViewController: UICollectionViewController {
     
     var category: String!
     var itemsArray = [Photo]()
-
     
     //MARK: viewDidLoad
     override func viewDidLoad() {
@@ -48,7 +47,7 @@ class CategoryCollectionViewController: UICollectionViewController {
     
     
     
-    // MARK: - Navigation
+    // MARK: - Prepare
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

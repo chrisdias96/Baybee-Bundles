@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class ShopViewController: UIViewController {
     
@@ -14,19 +15,19 @@ class ShopViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
 
     //MARK: Properties
+    var moc: NSManagedObjectContext!
     var categories = Categories()
     var passedCategories: String!
     
     //MARK: viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
         
+        //Do any additional setup after loading the view.
 
     }
     
-    // MARK: - Navigation
+    // MARK: - Prepare
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -35,7 +36,6 @@ class ShopViewController: UIViewController {
         guard let selectedIndex = tableView.indexPathForSelectedRow
             else { return }
         
-        //let category = categories.categories[selectedIndex.row]
         let category = categories.categories[selectedIndex.section]
         let title = category.title
         
@@ -47,7 +47,7 @@ class ShopViewController: UIViewController {
 
 }//end Class
 
-//MARK: Extensions
+//MARK: UITableViewDelegate, UITableViewDataSource
 extension ShopViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return categories.categories.count
@@ -68,6 +68,8 @@ extension ShopViewController: UITableViewDelegate, UITableViewDataSource {
         cell.layer.borderWidth = 1
         cell.layer.cornerRadius = 8
         cell.clipsToBounds = true
+        
+        cell.selectionStyle = UITableViewCell.SelectionStyle.none
             
         return cell
     }
@@ -81,11 +83,5 @@ extension ShopViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 10
     }
-    
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        let cellSpacingHeight: CGFloat = 100
-//
-//        return cellSpacingHeight
-//    }
     
 }

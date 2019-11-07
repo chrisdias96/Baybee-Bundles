@@ -9,23 +9,28 @@
 import UIKit
 
 class CartTableViewCell: UITableViewCell {
-
     
     @IBOutlet weak var cartImage: UIImageView!
     @IBOutlet weak var cartTitle: UILabel!
     @IBOutlet weak var cartPrice: UILabel!
     @IBOutlet weak var cartSize: UILabel!
     @IBOutlet weak var cartQuantity: UILabel!
+    @IBOutlet weak var editCellLabel: UILabel!
+    @IBOutlet weak var cartStepper: UIStepper!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    weak var delegate: CartTableViewCellProtocol?
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        self.delegate = nil
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    @IBAction func stepperAction(sender: UIStepper) {
+        self.delegate?.stepperTapped(cell: self)
     }
+    
+}
 
+protocol CartTableViewCellProtocol: class {
+    func stepperTapped(cell: CartTableViewCell)
 }
