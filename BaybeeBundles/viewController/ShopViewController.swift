@@ -18,6 +18,7 @@ class ShopViewController: UIViewController {
     var moc: NSManagedObjectContext!
     var categories = Categories()
     var passedCategories: String!
+    let minRowHeight: CGFloat = 50
     
     //MARK: viewDidLoad
     override func viewDidLoad() {
@@ -83,5 +84,15 @@ extension ShopViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 10
     }
+    
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        //Get the tableViewHeight
+//        let tHeight = tableView.frame.height
+//        //The height of the items divided by how many
+//        let temp = tHeight / CGFloat(categories.categories.count)
+//        //If temp is great then evenheight, return it other return evenheight
+//        return temp > minRowHeight ? temp : minRowHeight
+//    }
+
     
 }

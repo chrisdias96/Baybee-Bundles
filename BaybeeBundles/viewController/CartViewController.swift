@@ -14,6 +14,8 @@ class CartViewController: UIViewController, CartTableViewCellProtocol {
     //MARK: Outlets
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var subtotalLabel: UILabel!
+    @IBOutlet weak var taxesLabel: UILabel!
+    @IBOutlet weak var finalTotalLabel: UILabel!
     @IBOutlet weak var checkoutButton: UIButton!
     
     //MARK: Properties
@@ -21,8 +23,7 @@ class CartViewController: UIViewController, CartTableViewCellProtocol {
     var db: DBHelper?
     var persistentContainer: NSPersistentContainer!
     var fetchedResultsController: NSFetchedResultsController<Item>!
-    
-    var subtotal = 0.0
+ 
 
     
     //MARK: viewDidLoad
@@ -53,16 +54,39 @@ class CartViewController: UIViewController, CartTableViewCellProtocol {
         } catch let error {
             print("Problem fetching results - \(error)")
         }
-
-        subtotalLabel.text = String("$\(subtotal)")
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        #warning("subtotal not adding correct price")
-        //updateSubtotal()
+        updatePricing()
+    }
+    
+    func updatePricing() {
+        
+        var subtotal = 0.0
+        var taxes = 0.0
+        var finalTotal = 0.0
+        var totalPricePerItem = 0.0
+        
+        for item in (db?.getAllItems())! {
+            totalPricePerItem = item.price * Double(item.quantity)
+            subtotal += totalPricePerItem
+        }
+        //Display the subtotal pricing
+        subtotal = Double(String(format: "%.2f", subtotal))!
+        subtotalLabel.text = String("$\(subtotal)")
+        
+        //Display the taxes
+        taxes = subtotal * 0.13
+        taxes = Double(String(format: "%.2f", taxes))!
+        taxesLabel.text = String("$\(taxes)")
+        
+        //Display the final price
+        finalTotal = subtotal * 1.13
+        finalTotal = Double(String(format: "%.2f", finalTotal))!
+        finalTotalLabel.text = String("$\(finalTotal)")
     }
     
     func showDeleteConfirmationMessage(_ tappedCell: UITableViewCell, at indexPath: IndexPath) {
@@ -111,8 +135,6 @@ class CartViewController: UIViewController, CartTableViewCellProtocol {
             guard let indexPath = tableView.indexPath(for: selectedItemCell) else {
                 fatalError("The selected cell is not being displayed by the table")
             }
-            //        guard let indexPath = tableView.indexPathForSelectedRow
-            //        else { return }
             
             let itemToPass = fetchedResultsController?.object(at: indexPath)
             itemDetailVC.itemToPass = itemToPass
@@ -173,23 +195,11 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
-    #warning("fix updating subtotal")
-//    func updateSubtotal() {
-//
-//        var total = 0.0
-//
-//        for item in db?.item {
-//            total += item.price
-//        }
-//
-//        subtotalLabel.text = String(total)
-//    }
-    
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         
         if editingStyle == .delete {
             
-            let ac = UIAlertController(title: "Delete Item?", message: "Are you sure you want to delete this item from your cart?", preferredStyle: .actionSheet)
+            let ac = UIAlertController(title: nil, message: "Are you sure you want to remove this item from your cart?", preferredStyle: .actionSheet)
              let deleteAction = UIAlertAction(title: "Delete", style: .destructive, handler: { action in
                 
                 // Delete the row from the data source
@@ -197,6 +207,9 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource {
                 let itemToDelete = self.fetchedResultsController.object(at: indexPath)
 
                 self.db?.persistentContainer.viewContext.delete(itemToDelete)
+                
+                self.updatePricing()
+                
                 do {
                     try self.db?.persistentContainer.viewContext.save()
                 } catch let error {
@@ -306,8 +319,8 @@ extension CartViewController {
         cell.cartQuantity.text = String(stepperValue)
         item.quantity = Int64(stepperValue)
         
-        //Load the changes to the persistent container's moc
-//        NotificationCenter.default.addObserver(self, selector: #selector(self.managedObjectContextDidChange(notification:)), name: .NSManagedObjectContextObjectsDidChange, object: nil)
+        //Update the total pricing
+        updatePricing()
     }
 }
     

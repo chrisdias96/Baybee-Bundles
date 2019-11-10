@@ -42,6 +42,7 @@ class itemDetailViewController: UIViewController {
             let image = photoImageView.image,
             //Convert UIImage to NSData
             let imageConvertedToNSData: Data = image.pngData(),
+//            let imageConvertedToNSData = image.jpegData(compressionQuality: 1),
             var price = priceLabel.text,
             let size = valueOfSizeTextField.text,
             size != "",
@@ -73,11 +74,6 @@ class itemDetailViewController: UIViewController {
             guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
             db = appDelegate.dbHelper
         }
-        
-        //Determine the size of the scrollview
-        let contentWidth = scrollView.bounds.width
-        let contentHeight = scrollView.bounds.height * 3
-        scrollView.contentSize = CGSize(width: contentWidth, height: contentHeight)
 
         //Call the UIPickers
         createSizePicker()
@@ -159,7 +155,7 @@ class itemDetailViewController: UIViewController {
 extension itemDetailViewController {
     func showToast(message : String) {
 
-        let toastLabel = UILabel(frame: CGRect(x: self.view.frame.size.width/2 - 75, y: self.view.frame.size.height/2, width: 150, height: 50))
+        let toastLabel = UILabel(frame: CGRect(x: self.view.frame.size.width/2 - 100, y: self.view.frame.size.height/2, width: 200, height: 50))
         toastLabel.backgroundColor = UIColor.black.withAlphaComponent(0.6)
         toastLabel.textColor = UIColor.white
         toastLabel.font = UIFont(name: "Chalkboard SE Regular", size: 13)
@@ -169,26 +165,15 @@ extension itemDetailViewController {
         toastLabel.layer.cornerRadius = 10;
         toastLabel.clipsToBounds  =  true
         self.view.addSubview(toastLabel)
-        UIView.animate(withDuration: 5.0,  animations: {
-             toastLabel.alpha = 0.0
+        UIView.animate(withDuration: 4.0, delay: 0.1, options: .curveEaseIn, animations: {
+            toastLabel.alpha = 0.0
         }, completion: {(isCompleted) in
             toastLabel.removeFromSuperview()
         })
     }
 }
 
-//MARK: UITextFieldDelegate
-//extension itemDetailViewController: UITextFieldDelegate {
-//    var activeTextField = UITextField()
-//
-//    func textFieldDidBeginEditing(_ textField: UITextField) {
-//        self.activeTextField =
-//    }
-//}
-
 //MARK: UIPickerViewDataSource
-//tag1: sizePickerView
-//tag2: quantityPickerView
 extension itemDetailViewController: UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
