@@ -24,7 +24,30 @@ class CartViewController: UIViewController, CartTableViewCellProtocol {
     var persistentContainer: NSPersistentContainer!
     var fetchedResultsController: NSFetchedResultsController<Item>!
  
-
+    //MARK: Actions
+    @IBAction func BuyNowAction(_ sender: Any) {
+        let ac = UIAlertController(title: "Buy Now", message: "Are you sure you want to buy this? Your total is \(finalTotalLabel.text ?? "").", preferredStyle: .alert)
+        let buyAction = UIAlertAction(title: "Buy Now", style: .destructive, handler: { action in
+            let ac = UIAlertController(title: "Congratulations!", message: "You will receive an email shortly with shipping details.", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+            ac.addAction(okAction)
+            self.present(ac, animated: true)
+            })
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        ac.addAction(buyAction)
+        ac.addAction(cancelAction)
+        
+        //This is for devices with larger screens - Devices with larger screens present action sheets as popovers
+        //Prevents from crashing bigger devices
+        if let popOver = ac.popoverPresentationController {
+            popOver.sourceView = self.view
+            if let button = self.checkoutButton {
+                let xCord = CGPoint(x: button.frame.origin.x, y: button.frame.origin.y)
+                popOver.sourceRect = CGRect(x: xCord.x, y: xCord.y, width: 0, height: 0)
+            }
+        }
+        present(ac, animated: true)
+    }
     
     //MARK: viewDidLoad
     override func viewDidLoad() {
@@ -89,32 +112,7 @@ class CartViewController: UIViewController, CartTableViewCellProtocol {
         finalTotalLabel.text = String("$\(finalTotal)")
     }
     
-    func showDeleteConfirmationMessage(_ tappedCell: UITableViewCell, at indexPath: IndexPath) {
-        
-        let ac = UIAlertController(title: "Delete", message: "Are you sure you want to delete this item from your cart?", preferredStyle: .actionSheet)
-        let deleteAction = UIAlertAction(title: "Delete", style: .destructive, handler: { action in
-            self.items.remove(at: indexPath.row)
-            self.tableView.deleteRows(at: [indexPath], with: .automatic)
-            })
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        ac.addAction(deleteAction)
-        ac.addAction(cancelAction)
-        
-        //This is for devices with larger screens - Devices with larger screens present action sheets as popovers
-        //Prevents from crashing bigger devices
-        if let popOver = ac.popoverPresentationController {
-            popOver.sourceView = tappedCell
-            //Allows the delete cell to appear to the side instead of on top of the cell
-            if let cell = tappedCell as? CartTableViewCell {
-                let imageCenter = cell.cartImage.center
-                popOver.sourceRect = CGRect(x: imageCenter.x, y: imageCenter.y, width: 0, height: 0)
-            }
-        }
-        present(ac, animated: true)
-    }
-    
     // MARK: - Navigation
-
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)

@@ -31,7 +31,6 @@ class itemDetailViewController: UIViewController {
     @IBOutlet weak var valueOfSizeTextField: UITextField!
     @IBOutlet weak var valueOfQuantityTextField: UITextField!
     
-    
     @IBOutlet weak var addToCartButton: UIButton!
     
     //MARK: Actions
