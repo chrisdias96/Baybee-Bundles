@@ -8,6 +8,8 @@
 
 import UIKit
 import CoreData
+import MobileCoreServices
+import CoreSpotlight
 
 class CartViewController: UIViewController, CartTableViewCellProtocol {
 
@@ -80,10 +82,32 @@ class CartViewController: UIViewController, CartTableViewCellProtocol {
         
     }
     
+    func prepareUserActivity() -> NSUserActivity {
+        //Basic functionality to open app using spotlight
+        let userActivity = NSUserActivity(activityType: "ca.stclairconnect.dias01.christopher.BaybeeBundles")
+        
+        userActivity.title = "Cart"
+        userActivity.isEligibleForSearch = true
+        userActivity.isEligibleForPublicIndexing = true
+    
+        return userActivity
+    }
+    
+    //MARK: viewWillAppear
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         updatePricing()
+        
+        //Basic functionality to open app using spotlight
+        let userActivity = NSUserActivity(activityType: "ca.stclairconnect.dias01.christopher.BaybeeBundles")
+        
+        userActivity.title = "Cart"
+        userActivity.isEligibleForSearch = true
+        userActivity.isEligibleForPublicIndexing = true
+        
+        self.userActivity = userActivity
+        self.userActivity?.becomeCurrent()
     }
     
     func updatePricing() {
@@ -198,12 +222,12 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource {
         if editingStyle == .delete {
             
             let ac = UIAlertController(title: nil, message: "Are you sure you want to remove this item from your cart?", preferredStyle: .actionSheet)
-             let deleteAction = UIAlertAction(title: "Delete", style: .destructive, handler: { action in
+            let deleteAction = UIAlertAction(title: "Delete", style: .destructive, handler: { action in
                 
                 // Delete the row from the data source
                 // use fetched results controller
                 let itemToDelete = self.fetchedResultsController.object(at: indexPath)
-
+                
                 self.db?.persistentContainer.viewContext.delete(itemToDelete)
                 
                 self.updatePricing()
@@ -214,12 +238,21 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource {
                     print("We have an error when trying to delete - \(error.localizedDescription)")
                     self.db?.persistentContainer.viewContext.rollback()
                 }
-                 })
-             let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)
-             ac.addAction(deleteAction)
-             ac.addAction(cancelAction)
-             
-             present(ac, animated: true)
+            })
+            let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)
+            ac.addAction(deleteAction)
+            ac.addAction(cancelAction)
+            
+            //This is for devices with larger screens - Devices with larger screens present action sheets as popovers
+            //Prevents from crashing bigger devices
+            if let popOver = ac.popoverPresentationController {
+                popOver.sourceView = self.view
+                popOver.sourceRect = CGRect(x: self.view.bounds.midX, y: self.view.bounds.midY, width: 0, height: 0)
+                popOver.permittedArrowDirections = []
+
+            }
+            
+            present(ac, animated: true)
             
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view

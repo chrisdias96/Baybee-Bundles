@@ -28,6 +28,21 @@ class ShopViewController: UIViewController {
 
     }
     
+    //MARK: viewWillAppear
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        //Basic functionality to open app using spotlight
+        let userActivity = NSUserActivity(activityType: "ca.stclairconnect.dias01.christopher.BaybeeBundles")
+        
+        userActivity.title = "Shop"
+        userActivity.isEligibleForSearch = true
+        userActivity.isEligibleForPublicIndexing = true
+        
+        self.userActivity = userActivity
+        self.userActivity?.becomeCurrent()
+    }
+    
     // MARK: - Prepare
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
