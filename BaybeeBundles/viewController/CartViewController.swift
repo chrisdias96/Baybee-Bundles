@@ -8,6 +8,10 @@
 
 import UIKit
 import CoreData
+import MobileCoreServices
+import CoreSpotlight
+import AVFoundation
+import MediaPlayer
 
 class CartViewController: UIViewController, CartTableViewCellProtocol {
 
@@ -23,8 +27,36 @@ class CartViewController: UIViewController, CartTableViewCellProtocol {
     var db: DBHelper?
     var persistentContainer: NSPersistentContainer!
     var fetchedResultsController: NSFetchedResultsController<Item>!
+    
+    let song = "complete_alert"
+    var audioPlayer: AVAudioPlayer!
  
-
+    //MARK: Actions
+    @IBAction func BuyNowAction(_ sender: Any) {
+        let ac = UIAlertController(title: "Buy Now", message: "Are you sure you want to buy this? Your total is \(finalTotalLabel.text ?? "").", preferredStyle: .alert)
+        let buyAction = UIAlertAction(title: "Buy Now", style: .destructive, handler: { action in
+            let ac = UIAlertController(title: "Congratulations!", message: "You will receive an email shortly with shipping details.", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+            ac.addAction(okAction)
+            self.present(ac, animated: true)
+            //play a chant when "purchased"
+            self.startPlayback()
+            })
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        ac.addAction(buyAction)
+        ac.addAction(cancelAction)
+        
+        //This is for devices with larger screens - Devices with larger screens present action sheets as popovers
+        //Prevents from crashing bigger devices
+        if let popOver = ac.popoverPresentationController {
+            popOver.sourceView = self.view
+            if let button = self.checkoutButton {
+                let xCord = CGPoint(x: button.frame.origin.x, y: button.frame.origin.y)
+                popOver.sourceRect = CGRect(x: xCord.x, y: xCord.y, width: 0, height: 0)
+            }
+        }
+        present(ac, animated: true)
+    }
     
     //MARK: viewDidLoad
     override func viewDidLoad() {
@@ -55,12 +87,40 @@ class CartViewController: UIViewController, CartTableViewCellProtocol {
             print("Problem fetching results - \(error)")
         }
         
+        //Load Audio
+        try? AVAudioSession.sharedInstance().setCategory(.playback, mode: .default, options: [.allowAirPlay])
+        try? AVAudioSession.sharedInstance().setActive(true, options: [])
+        
+        loadAlertSong()
+        
     }
     
+    func prepareUserActivity() -> NSUserActivity {
+        //Basic functionality to open app using spotlight
+        let userActivity = NSUserActivity(activityType: "ca.stclairconnect.dias01.christopher.BaybeeBundles")
+        
+        userActivity.title = "Cart"
+        userActivity.isEligibleForSearch = true
+        userActivity.isEligibleForPublicIndexing = true
+    
+        return userActivity
+    }
+    
+    //MARK: viewWillAppear
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         updatePricing()
+        
+        //Basic functionality to open app using spotlight
+        let userActivity = NSUserActivity(activityType: "ca.stclairconnect.dias01.christopher.BaybeeBundles")
+        
+        userActivity.title = "Cart"
+        userActivity.isEligibleForSearch = true
+        userActivity.isEligibleForPublicIndexing = true
+        
+        self.userActivity = userActivity
+        self.userActivity?.becomeCurrent()
     }
     
     func updatePricing() {
@@ -89,32 +149,7 @@ class CartViewController: UIViewController, CartTableViewCellProtocol {
         finalTotalLabel.text = String("$\(finalTotal)")
     }
     
-    func showDeleteConfirmationMessage(_ tappedCell: UITableViewCell, at indexPath: IndexPath) {
-        
-        let ac = UIAlertController(title: "Delete", message: "Are you sure you want to delete this item from your cart?", preferredStyle: .actionSheet)
-        let deleteAction = UIAlertAction(title: "Delete", style: .destructive, handler: { action in
-            self.items.remove(at: indexPath.row)
-            self.tableView.deleteRows(at: [indexPath], with: .automatic)
-            })
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        ac.addAction(deleteAction)
-        ac.addAction(cancelAction)
-        
-        //This is for devices with larger screens - Devices with larger screens present action sheets as popovers
-        //Prevents from crashing bigger devices
-        if let popOver = ac.popoverPresentationController {
-            popOver.sourceView = tappedCell
-            //Allows the delete cell to appear to the side instead of on top of the cell
-            if let cell = tappedCell as? CartTableViewCell {
-                let imageCenter = cell.cartImage.center
-                popOver.sourceRect = CGRect(x: imageCenter.x, y: imageCenter.y, width: 0, height: 0)
-            }
-        }
-        present(ac, animated: true)
-    }
-    
     // MARK: - Navigation
-
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
@@ -142,7 +177,13 @@ class CartViewController: UIViewController, CartTableViewCellProtocol {
         default:
             fatalError("Unexpected Segue Identifier; \(String(describing: segue.identifier))")
         }
-
+    }
+    
+    //Functions
+    func loadAlertSong() {
+        let url = Bundle.main.url(forResource: song, withExtension: "mp3")!
+        audioPlayer = try! AVAudioPlayer(contentsOf: url)
+        audioPlayer.delegate = self
     }
 
 }
@@ -200,12 +241,12 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource {
         if editingStyle == .delete {
             
             let ac = UIAlertController(title: nil, message: "Are you sure you want to remove this item from your cart?", preferredStyle: .actionSheet)
-             let deleteAction = UIAlertAction(title: "Delete", style: .destructive, handler: { action in
+            let deleteAction = UIAlertAction(title: "Delete", style: .destructive, handler: { action in
                 
                 // Delete the row from the data source
                 // use fetched results controller
                 let itemToDelete = self.fetchedResultsController.object(at: indexPath)
-
+                
                 self.db?.persistentContainer.viewContext.delete(itemToDelete)
                 
                 self.updatePricing()
@@ -216,12 +257,21 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource {
                     print("We have an error when trying to delete - \(error.localizedDescription)")
                     self.db?.persistentContainer.viewContext.rollback()
                 }
-                 })
-             let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)
-             ac.addAction(deleteAction)
-             ac.addAction(cancelAction)
-             
-             present(ac, animated: true)
+            })
+            let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)
+            ac.addAction(deleteAction)
+            ac.addAction(cancelAction)
+            
+            //This is for devices with larger screens - Devices with larger screens present action sheets as popovers
+            //Prevents from crashing bigger devices
+            if let popOver = ac.popoverPresentationController {
+                popOver.sourceView = self.view
+                popOver.sourceRect = CGRect(x: self.view.bounds.midX, y: self.view.bounds.midY, width: 0, height: 0)
+                popOver.permittedArrowDirections = []
+
+            }
+            
+            present(ac, animated: true)
             
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
@@ -324,3 +374,15 @@ extension CartViewController {
     }
 }
     
+//MARK: AVAudioPlayerDelegate
+extension CartViewController: AVAudioPlayerDelegate {
+    //Called when meant to play the song
+    func startPlayback() {
+        audioPlayer.play()
+    }
+    
+    //Called when meant to pause the song
+    func pausePlayback() {
+        audioPlayer.pause()
+    }
+}

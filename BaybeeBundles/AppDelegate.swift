@@ -72,6 +72,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
+    
+    //MARK: Spotlight Search Sends Automatically to Cart
+    func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
+        guard let tabBar = window?.rootViewController as? UITabBarController else {
+            return false
+        }
+        
+        let tabIndex: Int?
+        
+        switch userActivity.title {
+        case "Shop":
+            tabIndex = 0
+        case "Cart":
+            tabIndex = 1
+        default:
+            tabIndex = 0
+        }
+        
+        guard let index = tabIndex else {
+            return false
+        }
+        
+        tabBar.selectedIndex = index
+        return true
+    }
 
 }
 
