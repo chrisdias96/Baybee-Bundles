@@ -10,6 +10,8 @@ import UIKit
 import CoreData
 import MobileCoreServices
 import CoreSpotlight
+import AVFoundation
+import MediaPlayer
 
 class CartViewController: UIViewController, CartTableViewCellProtocol {
 
@@ -25,6 +27,9 @@ class CartViewController: UIViewController, CartTableViewCellProtocol {
     var db: DBHelper?
     var persistentContainer: NSPersistentContainer!
     var fetchedResultsController: NSFetchedResultsController<Item>!
+    
+    let song = "complete_alert"
+    var audioPlayer: AVAudioPlayer!
  
     //MARK: Actions
     @IBAction func BuyNowAction(_ sender: Any) {
@@ -34,6 +39,8 @@ class CartViewController: UIViewController, CartTableViewCellProtocol {
             let okAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
             ac.addAction(okAction)
             self.present(ac, animated: true)
+            //play a chant when "purchased"
+            self.startPlayback()
             })
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         ac.addAction(buyAction)
@@ -79,6 +86,12 @@ class CartViewController: UIViewController, CartTableViewCellProtocol {
         } catch let error {
             print("Problem fetching results - \(error)")
         }
+        
+        //Load Audio
+        try? AVAudioSession.sharedInstance().setCategory(.playback, mode: .default, options: [.allowAirPlay])
+        try? AVAudioSession.sharedInstance().setActive(true, options: [])
+        
+        loadAlertSong()
         
     }
     
@@ -164,7 +177,13 @@ class CartViewController: UIViewController, CartTableViewCellProtocol {
         default:
             fatalError("Unexpected Segue Identifier; \(String(describing: segue.identifier))")
         }
-
+    }
+    
+    //Functions
+    func loadAlertSong() {
+        let url = Bundle.main.url(forResource: song, withExtension: "mp3")!
+        audioPlayer = try! AVAudioPlayer(contentsOf: url)
+        audioPlayer.delegate = self
     }
 
 }
@@ -355,3 +374,15 @@ extension CartViewController {
     }
 }
     
+//MARK: AVAudioPlayerDelegate
+extension CartViewController: AVAudioPlayerDelegate {
+    //Called when meant to play the song
+    func startPlayback() {
+        audioPlayer.play()
+    }
+    
+    //Called when meant to pause the song
+    func pausePlayback() {
+        audioPlayer.pause()
+    }
+}

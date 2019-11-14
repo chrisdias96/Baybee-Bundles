@@ -588,8 +588,13 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gAf-gT-Ufr">
                                 <rect key="frame" x="0.0" y="44" width="320" height="475"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hat1" translatesAutoresizingMaskIntoConstraints="NO" id="V3o-6u-zhq">
+                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hat1" translatesAutoresizingMaskIntoConstraints="NO" id="V3o-6u-zhq">
                                         <rect key="frame" x="8" y="8" width="304" height="223"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="Nvm-D8-td0" appends="YES" id="W9a-cT-iqg"/>
+                                            <outletCollection property="gestureRecognizers" destination="UOT-Sl-g3o" appends="YES" id="MaF-eQ-zt4"/>
+                                        </connections>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="yfl-0V-x3I" userLabel="labelStack">
                                         <rect key="frame" x="8" y="231" width="304" height="178"/>
@@ -833,6 +838,16 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y7s-H0-VH1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <pinchGestureRecognizer id="Nvm-D8-td0">
+                    <connections>
+                        <action selector="pinchImageGesture:" destination="aFc-lV-MdO" id="3QG-Pv-SH6"/>
+                    </connections>
+                </pinchGestureRecognizer>
+                <rotationGestureRecognizer id="UOT-Sl-g3o">
+                    <connections>
+                        <action selector="rotateImageGesture:" destination="aFc-lV-MdO" id="BOU-i4-qGv"/>
+                    </connections>
+                </rotationGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="3300" y="-311.61971830985914"/>
         </scene>

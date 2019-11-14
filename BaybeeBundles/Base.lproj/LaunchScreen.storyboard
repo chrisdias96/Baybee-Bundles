@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="appLogo" translatesAutoresizingMaskIntoConstraints="NO" id="GM2-zW-ywp">
-                                <rect key="frame" x="-8" y="184" width="336" height="200"/>
+                                <rect key="frame" x="8" y="184" width="304" height="200"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="sw3-o3-jyw"/>
                                 </constraints>
@@ -31,8 +31,8 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="GM2-zW-ywp" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="8" id="5NX-2z-RxB"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="leading" secondItem="GM2-zW-ywp" secondAttribute="leading" constant="8" id="Kpj-md-fp5"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="GM2-zW-ywp" secondAttribute="trailing" constant="8" id="5NX-2z-RxB"/>
+                            <constraint firstItem="GM2-zW-ywp" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="Kpj-md-fp5"/>
                             <constraint firstItem="a8d-Lt-Rdj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="SFm-UP-5u3"/>
                             <constraint firstItem="GM2-zW-ywp" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="asN-qg-NoP"/>
                             <constraint firstItem="GM2-zW-ywp" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="dYF-NO-5Lh"/>

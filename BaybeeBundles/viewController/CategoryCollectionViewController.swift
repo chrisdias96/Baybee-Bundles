@@ -18,7 +18,7 @@ class CategoryCollectionViewController: UICollectionViewController {
     
     var category: String!
     var itemsArray = [Photo]()
-    
+
     //MARK: viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,9 +27,8 @@ class CategoryCollectionViewController: UICollectionViewController {
             collectionView?.contentInsetAdjustmentBehavior = .always
         }
 
-        // Do any additional setup after loading the view.
+        //Add the title and load the photo depending on category chosen
         self.title = category
-        
         switch category {
         case "HATS":
             itemsArray = hats.hatPhotos
@@ -44,8 +43,6 @@ class CategoryCollectionViewController: UICollectionViewController {
         }
     }
     
-    
-    
     // MARK: - Prepare
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -58,16 +55,13 @@ class CategoryCollectionViewController: UICollectionViewController {
             let selectedIndex = collectionView.indexPathsForSelectedItems?.first {
             itemDetailVC.photo = itemsArray[selectedIndex.row]
         }
-        
     }
-    
 
     // MARK: UICollectionViewDataSource
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
-
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
@@ -92,9 +86,7 @@ class CategoryCollectionViewController: UICollectionViewController {
         return cell
     }
 
-
     // MARK: UICollectionViewDelegate
-
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         performSegue(withIdentifier: "itemDetailSegue", sender: self)
     }
