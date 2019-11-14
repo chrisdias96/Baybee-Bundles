@@ -64,6 +64,34 @@ class itemDetailViewController: UIViewController {
         showToast(message: "Added to Cart")
     }
     
+    @IBAction func pinchImageGesture(_ gesture: UIPinchGestureRecognizer) {
+        let currentScale = gesture.scale
+        let pinchedView = gesture.view as! UIImageView
+
+        if gesture.state == .changed {
+            pinchedView.transform = CGAffineTransform(scaleX: currentScale, y: currentScale)
+        }
+        if gesture.state == .ended {
+            UIView.animate(withDuration: 1.0, animations: {
+                pinchedView.transform = CGAffineTransform.identity
+            })
+        }
+    }
+    
+    @IBAction func rotateImageGesture(_ gesture: UIRotationGestureRecognizer) {
+        let currentRotation = gesture.rotation
+        let rotatingView = gesture.view as! UIImageView
+        
+        if gesture.state == .changed {
+            rotatingView.transform = CGAffineTransform(rotationAngle: currentRotation)
+        }
+        if gesture.state == .ended {
+            UIView.animate(withDuration: 1.0, animations: {
+                self.photoImageView.transform = CGAffineTransform.identity
+                })
+        }
+    }
+    
     //MARK: viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -149,6 +177,7 @@ class itemDetailViewController: UIViewController {
         sender.layer.borderColor = UIColor.black.cgColor
         sender.layer.borderWidth = 2
     }
+    
 }//end Class
 
 extension itemDetailViewController {
