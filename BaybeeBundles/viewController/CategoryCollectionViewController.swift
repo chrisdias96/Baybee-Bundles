@@ -27,6 +27,9 @@ class CategoryCollectionViewController: UICollectionViewController {
             collectionView?.contentInsetAdjustmentBehavior = .always
         }
         
+//        let width = (view.frame.size.width - 20) / 2
+//        let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
+//        layout.estimatedItemSize = CGSize(width: width, height: 200)
 
         //Add the title and load the photo depending on category chosen
         self.title = category
