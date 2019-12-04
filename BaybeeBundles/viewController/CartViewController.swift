@@ -33,29 +33,12 @@ class CartViewController: UIViewController, CartTableViewCellProtocol {
  
     //MARK: Actions
     @IBAction func BuyNowAction(_ sender: Any) {
-        let ac = UIAlertController(title: "Buy Now", message: "Are you sure you want to buy this? Your total is \(finalTotalLabel.text ?? "").", preferredStyle: .alert)
-        let buyAction = UIAlertAction(title: "Buy Now", style: .destructive, handler: { action in
-            let ac = UIAlertController(title: "Congratulations!", message: "You will receive an email shortly with shipping details.", preferredStyle: .alert)
-            let okAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-            ac.addAction(okAction)
-            self.present(ac, animated: true)
-            //play a chant when "purchased"
-            self.startPlayback()
-            })
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        ac.addAction(buyAction)
-        ac.addAction(cancelAction)
         
-        //This is for devices with larger screens - Devices with larger screens present action sheets as popovers
-        //Prevents from crashing bigger devices
-        if let popOver = ac.popoverPresentationController {
-            popOver.sourceView = self.view
-            if let button = self.checkoutButton {
-                let xCord = CGPoint(x: button.frame.origin.x, y: button.frame.origin.y)
-                popOver.sourceRect = CGRect(x: xCord.x, y: xCord.y, width: 0, height: 0)
-            }
+        guard (fetchedResultsController.sections?.count) != 0 else {
+            self.cartEmptyAlert()
+            return
         }
-        present(ac, animated: true)
+        self.purchaseAlert()
     }
     
     //MARK: viewDidLoad
@@ -124,7 +107,6 @@ class CartViewController: UIViewController, CartTableViewCellProtocol {
     }
     
     func updatePricing() {
-        
         var subtotal = 0.0
         var taxes = 0.0
         var finalTotal = 0.0
@@ -147,6 +129,52 @@ class CartViewController: UIViewController, CartTableViewCellProtocol {
         finalTotal = subtotal * 1.13
         finalTotal = Double(String(format: "%.2f", finalTotal))!
         finalTotalLabel.text = String("$\(finalTotal)")
+    }
+    
+    //MARK: UIAlerts
+    func purchaseAlert() {
+        let ac = UIAlertController(title: "Buy Now", message: "Are you sure you want to buy this? Your total is \(finalTotalLabel.text ?? "").", preferredStyle: .alert)
+        let buyAction = UIAlertAction(title: "Buy Now", style: .destructive, handler: { action in
+            let ac = UIAlertController(title: "Congratulations!", message: "You will receive an email shortly with shipping details.", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+            ac.addAction(okAction)
+            self.present(ac, animated: true)
+            })
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        ac.addAction(buyAction)
+        ac.addAction(cancelAction)
+        
+        //This is for devices with larger screens - Devices with larger screens present action sheets as popovers
+        //Prevents from crashing bigger devices
+        if let popOver = ac.popoverPresentationController {
+            popOver.sourceView = self.view
+            if let button = self.checkoutButton {
+                let xCord = CGPoint(x: button.frame.origin.x, y: button.frame.origin.y)
+                popOver.sourceRect = CGRect(x: xCord.x, y: xCord.y, width: 0, height: 0)
+            }
+        }
+        present(ac, animated: true)
+    }
+    
+    func cartEmptyAlert() {
+        let ac = UIAlertController(title: "Your cart is empty!", message: "Add some items to your cart to continue", preferredStyle: .actionSheet)
+        
+        let okAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+            ac.addAction(okAction)
+            self.present(ac, animated: true)
+        
+        ac.addAction(okAction)
+    
+        //This is for devices with larger screens - Devices with larger screens present action sheets as popovers
+        //Prevents from crashing bigger devices
+        if let popOver = ac.popoverPresentationController {
+            popOver.sourceView = self.view
+            if let button = self.checkoutButton {
+                let xCord = CGPoint(x: button.frame.origin.x, y: button.frame.origin.y)
+                popOver.sourceRect = CGRect(x: xCord.x, y: xCord.y, width: 0, height: 0)
+            }
+        }
+        present(ac, animated: true)
     }
     
     // MARK: - Navigation

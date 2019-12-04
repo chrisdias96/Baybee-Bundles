@@ -26,6 +26,7 @@ class CategoryCollectionViewController: UICollectionViewController {
         if #available(iOS 11.0, *) {
             collectionView?.contentInsetAdjustmentBehavior = .always
         }
+        
 
         //Add the title and load the photo depending on category chosen
         self.title = category
