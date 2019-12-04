@@ -138,7 +138,10 @@ class CartViewController: UIViewController, CartTableViewCellProtocol {
             let okAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
             ac.addAction(okAction)
             self.present(ac, animated: true)
+            //play a chant when "purchased"
+            self.startPlayback()
             })
+        
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         ac.addAction(buyAction)
         ac.addAction(cancelAction)
